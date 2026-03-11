@@ -138,6 +138,18 @@ source .venv/bin/activate
 - `from src.sanitizer import sanitize` works (stub raises NotImplementedError at call time, not import)
 - .env.example documents all required config keys for Phase 2 IMAP integration
 
+## Self-Check: PASSED
+
+- FOUND: src/models.py
+- FOUND: src/config.py
+- FOUND: src/sanitizer.py
+- FOUND: tests/test_sanitizer.py
+- FOUND: .env.example
+- FOUND: 01-01-SUMMARY.md
+- FOUND commit: c158d54 (feat: scaffolding)
+- FOUND commit: d55ee59 (test: infrastructure)
+- FOUND commit: 201d21f (docs: metadata)
+
 ---
 *Phase: 01-foundation-and-privacy-sanitizer*
 *Completed: 2026-03-11*
