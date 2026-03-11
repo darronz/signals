@@ -24,7 +24,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PRIV-05**: Sanitizer supports configurable extra PII redaction regex patterns
 - [ ] **PRIV-06**: Sanitizer reduces sender identity to domain-only before passing to Claude
 - [ ] **PRIV-07**: Sanitizer truncates individual newsletter bodies to configurable character limit
-- [ ] **PRIV-08**: No email headers (To, CC, BCC, Message-ID, X-headers) ever reach Claude
+- [x] **PRIV-08**: No email headers (To, CC, BCC, Message-ID, X-headers) ever reach Claude
 
 ### Summarization
 
@@ -54,7 +54,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Documentation
 
 - [ ] **DOCS-01**: README.md with setup guide, usage docs, configuration reference, and examples
-- [ ] **DOCS-02**: .env.example with placeholder values and descriptive comments
+- [x] **DOCS-02**: .env.example with placeholder values and descriptive comments
 
 ## v2 Requirements
 
@@ -100,7 +100,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRIV-05 | Phase 1 | Pending |
 | PRIV-06 | Phase 1 | Pending |
 | PRIV-07 | Phase 1 | Pending |
-| PRIV-08 | Phase 1 | Pending |
+| PRIV-08 | Phase 1 | Complete (01-01) |
 | SUMM-01 | Phase 3 | Pending |
 | SUMM-02 | Phase 3 | Pending |
 | SUMM-03 | Phase 3 | Pending |
@@ -118,7 +118,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPS-04 | Phase 3 | Pending |
 | OPS-05 | Phase 3 | Pending |
 | DOCS-01 | Phase 4 | Pending |
-| DOCS-02 | Phase 1 | Pending |
+| DOCS-02 | Phase 1 | Complete (01-01) |
 
 **Coverage:**
 - v1 requirements: 31 total
@@ -127,4 +127,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after roadmap creation*
+*Last updated: 2026-03-11 after plan 01-01 completion (PRIV-08, DOCS-02 complete)*

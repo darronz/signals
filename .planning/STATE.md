@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-03-11)
 ## Current Position
 
 Phase: 1 of 4 (Foundation and Privacy Sanitizer)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-11 — Roadmap created
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-03-11 — Plan 01-01 complete
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 8%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 11 min
+- Total execution time: 0.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01-foundation-and-privacy-sanitizer | 1 | 11 min | 11 min |
 
 **Recent Trend:**
-- Last 5 plans: none yet
+- Last 5 plans: 11 min
 - Trend: -
 
 *Updated after each plan completion*
@@ -46,6 +46,12 @@ Recent decisions affecting current work:
 - UID mode for IMAP mandatory from day one: sequence numbers cause silent wrong-message fetches
 - subprocess.run(input=...) pattern required: Popen + manual pipe causes deadlock on large batches
 
+**Plan 01-01 decisions (2026-03-11):**
+- dataclasses used over pydantic — sufficient for typed contracts without extra dependency
+- CleanMessage has exactly 4 fields (no headers) — privacy boundary enforced by type design, not runtime checks
+- load_dotenv() deferred to function bodies only — prevents test import failures without .env present
+- Virtual environment (.venv/) required — system Python is externally managed on macOS 25.x
+
 ### Pending Todos
 
 None yet.
@@ -59,5 +65,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-11
-Stopped at: Roadmap created, STATE.md initialized — ready to plan Phase 1
+Stopped at: Completed 01-01-PLAN.md — project scaffolding, data contracts, test infrastructure
 Resume file: None

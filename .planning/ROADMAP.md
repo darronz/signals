@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding, data contracts, config, test infrastructure
+- [x] 01-01-PLAN.md — Project scaffolding, data contracts, config, test infrastructure
 - [ ] 01-02-PLAN.md — TDD: Privacy sanitizer implementation
 
 ### Phase 2: IMAP Fetch
@@ -75,7 +75,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Privacy Sanitizer | 0/2 | Planning complete | - |
+| 1. Foundation and Privacy Sanitizer | 1/2 | In progress | - |
 | 2. IMAP Fetch | 0/TBD | Not started | - |
 | 3. Summarize, Deliver, and Pipeline Assembly | 0/TBD | Not started | - |
 | 4. Weekly Rollup, Cron, and Documentation | 0/TBD | Not started | - |
