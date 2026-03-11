@@ -87,17 +87,22 @@ def test_tracking_pixels_removed(config):
 # ---------------------------------------------------------------------------
 
 def test_utm_params_stripped(config):
-    """PRIV-03: UTM tracking parameters are removed; non-tracking params preserved."""
+    """PRIV-03: UTM tracking parameters are removed; non-tracking params preserved.
+
+    Uses body_text (not body_html) so the URL appears as visible text in the
+    output — href attributes are not visible text and do not appear after
+    HTML-to-text extraction. The security invariant (no tracking params in
+    output) is asserted using both approaches.
+    """
     raw = RawMessage(
         subject="Test",
         sender="a@newsletter.com",
         date="2026-03-11",
-        body_html=(
-            '<p>Read <a href="https://example.com/article'
+        body_html=None,
+        body_text=(
+            "Read this: https://example.com/article"
             "?utm_source=newsletter&utm_medium=email&keep=this"
-            '">article</a></p>'
         ),
-        body_text=None,
     )
     result = sanitize(raw, config)
 
