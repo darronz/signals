@@ -17,13 +17,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Privacy Sanitization
 
-- [ ] **PRIV-01**: Sanitizer converts HTML email bodies to clean plain text
-- [ ] **PRIV-02**: Sanitizer strips all tracking pixels (1x1 images, hidden imgs)
-- [ ] **PRIV-03**: Sanitizer removes known tracking URL parameters (utm_*, mc_eid, fbclid, etc.)
-- [ ] **PRIV-04**: Sanitizer redacts user's email address and name from body text
-- [ ] **PRIV-05**: Sanitizer supports configurable extra PII redaction regex patterns
-- [ ] **PRIV-06**: Sanitizer reduces sender identity to domain-only before passing to Claude
-- [ ] **PRIV-07**: Sanitizer truncates individual newsletter bodies to configurable character limit
+- [x] **PRIV-01**: Sanitizer converts HTML email bodies to clean plain text
+- [x] **PRIV-02**: Sanitizer strips all tracking pixels (1x1 images, hidden imgs)
+- [x] **PRIV-03**: Sanitizer removes known tracking URL parameters (utm_*, mc_eid, fbclid, etc.)
+- [x] **PRIV-04**: Sanitizer redacts user's email address and name from body text
+- [x] **PRIV-05**: Sanitizer supports configurable extra PII redaction regex patterns
+- [x] **PRIV-06**: Sanitizer reduces sender identity to domain-only before passing to Claude
+- [x] **PRIV-07**: Sanitizer truncates individual newsletter bodies to configurable character limit
 - [x] **PRIV-08**: No email headers (To, CC, BCC, Message-ID, X-headers) ever reach Claude
 
 ### Summarization
@@ -93,13 +93,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FETCH-03 | Phase 2 | Pending |
 | FETCH-04 | Phase 2 | Pending |
 | FETCH-05 | Phase 2 | Pending |
-| PRIV-01 | Phase 1 | Pending |
-| PRIV-02 | Phase 1 | Pending |
-| PRIV-03 | Phase 1 | Pending |
-| PRIV-04 | Phase 1 | Pending |
-| PRIV-05 | Phase 1 | Pending |
-| PRIV-06 | Phase 1 | Pending |
-| PRIV-07 | Phase 1 | Pending |
+| PRIV-01 | Phase 1 | Complete (01-02) |
+| PRIV-02 | Phase 1 | Complete (01-02) |
+| PRIV-03 | Phase 1 | Complete (01-02) |
+| PRIV-04 | Phase 1 | Complete (01-02) |
+| PRIV-05 | Phase 1 | Complete (01-02) |
+| PRIV-06 | Phase 1 | Complete (01-02) |
+| PRIV-07 | Phase 1 | Complete (01-02) |
 | PRIV-08 | Phase 1 | Complete (01-01) |
 | SUMM-01 | Phase 3 | Pending |
 | SUMM-02 | Phase 3 | Pending |
@@ -127,4 +127,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after plan 01-01 completion (PRIV-08, DOCS-02 complete)*
+*Last updated: 2026-03-11 after plan 01-02 completion (PRIV-01 through PRIV-07 complete)*

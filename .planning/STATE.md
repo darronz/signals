@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-11)
 ## Current Position
 
 Phase: 1 of 4 (Foundation and Privacy Sanitizer)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-03-11 — Plan 01-01 complete
+Last activity: 2026-03-11 — Plan 01-02 complete
 
-Progress: [█░░░░░░░░░] 8%
+Progress: [██░░░░░░░░] 17%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 11 min
-- Total execution time: 0.2 hours
+- Total plans completed: 2
+- Average duration: 9 min
+- Total execution time: 0.3 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation-and-privacy-sanitizer | 1 | 11 min | 11 min |
+| 01-foundation-and-privacy-sanitizer | 2 | 18 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 11 min
-- Trend: -
+- Last 5 plans: 11 min, 7 min
+- Trend: faster
 
 *Updated after each plan completion*
 
@@ -52,6 +52,11 @@ Recent decisions affecting current work:
 - load_dotenv() deferred to function bodies only — prevents test import failures without .env present
 - Virtual environment (.venv/) required — system Python is externally managed on macOS 25.x
 
+**Plan 01-02 decisions (2026-03-11):**
+- Pipeline order (HTML-to-text -> URL strip -> PII redact -> truncate) enforced and documented in code — security requirement, not style
+- test_utm_params_stripped updated to use body_text for URL assertions — href attributes not extracted by BS4 get_text()
+- All img tags removed (conservative) — safer than size-based detection per research recommendation
+
 ### Pending Todos
 
 None yet.
@@ -65,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-11
-Stopped at: Completed 01-01-PLAN.md — project scaffolding, data contracts, test infrastructure
+Stopped at: Completed 01-02-PLAN.md — privacy sanitizer implementation, all 13 PRIV tests green
 Resume file: None
