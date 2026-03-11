@@ -29,7 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. An assertion test passes: the configured user email address never appears anywhere in sanitizer output
   4. The .env.example file exists with all required configuration keys and descriptive comments
   5. The project package structure is importable and all modules can be loaded without error
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffolding, data contracts, config, test infrastructure
+- [ ] 01-02-PLAN.md — TDD: Privacy sanitizer implementation
 
 ### Phase 2: IMAP Fetch
 **Goal**: Real newsletter emails are fetched from Proton Mail Bridge and flow through the sanitizer cleanly
@@ -71,7 +75,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Privacy Sanitizer | 0/TBD | Not started | - |
+| 1. Foundation and Privacy Sanitizer | 0/2 | Planning complete | - |
 | 2. IMAP Fetch | 0/TBD | Not started | - |
 | 3. Summarize, Deliver, and Pipeline Assembly | 0/TBD | Not started | - |
 | 4. Weekly Rollup, Cron, and Documentation | 0/TBD | Not started | - |
