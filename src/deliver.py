@@ -69,10 +69,17 @@ def send_digest_email(
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
 
-    with smtplib.SMTP(config["smtp_host"], config["smtp_port"]) as smtp:
-        smtp.starttls(context=ctx)
-        smtp.login(config["imap_username"], config["imap_password"])
-        smtp.send_message(msg)
+    security = config.get("smtp_security", "STARTTLS").upper()
+
+    if security == "SSL":
+        with smtplib.SMTP_SSL(config["smtp_host"], config["smtp_port"], context=ctx) as smtp:
+            smtp.login(config["imap_username"], config["imap_password"])
+            smtp.send_message(msg)
+    else:
+        with smtplib.SMTP(config["smtp_host"], config["smtp_port"]) as smtp:
+            smtp.starttls(context=ctx)
+            smtp.login(config["imap_username"], config["imap_password"])
+            smtp.send_message(msg)
 
 
 def save_archive(digest_md: str, config: dict) -> Path:

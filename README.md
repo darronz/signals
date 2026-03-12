@@ -153,6 +153,9 @@ Pre-built shell scripts are available in `scripts/`:
 # Run the daily digest with prerequisite checks (Bridge + claude must be running)
 scripts/run-digest.sh
 
+# Run the weekly rollup with prerequisite checks
+scripts/run-weekly.sh
+
 # Run daily in dry-run mode
 scripts/dry-run.sh
 ```
