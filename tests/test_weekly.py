@@ -448,6 +448,61 @@ class TestMainDelivery:
 
 
 # ---------------------------------------------------------------------------
+# DLVR-04 — Weekly email subject contains "Weekly" not "Daily"
+# ---------------------------------------------------------------------------
+
+class TestWeeklyEmailSubject:
+    def test_weekly_main_passes_weekly_subject_to_send_digest_email(self, tmp_path: Path) -> None:
+        """main() passes a subject containing 'Weekly' and the ISO week number."""
+        import scripts.weekly as w
+        from datetime import date
+
+        today = date.today()
+        (tmp_path / f"digest-{today.isoformat()}.md").write_text("Content", encoding="utf-8")
+
+        cfg = _minimal_config(tmp_path, output_format="email")
+
+        with patch.object(w, "load_config", return_value=cfg), \
+             patch.object(w, "call_claude", return_value="# Weekly Digest\n\nTrends."), \
+             patch.object(w, "send_digest_email") as mock_send, \
+             patch.object(w, "markdown_to_html", return_value="<html>html</html>"), \
+             patch("sys.argv", ["weekly.py"]):
+            with pytest.raises(SystemExit):
+                w.main()
+
+        mock_send.assert_called_once()
+        call_kwargs = mock_send.call_args.kwargs
+        subject = call_kwargs.get("subject", "")
+        assert "Weekly" in subject, f"Expected 'Weekly' in subject, got: {subject!r}"
+        assert "Daily" not in subject, f"'Daily' should NOT appear in weekly subject, got: {subject!r}"
+
+    def test_weekly_subject_contains_iso_week_number(self, tmp_path: Path) -> None:
+        """Weekly subject includes the ISO week number."""
+        import scripts.weekly as w
+        from datetime import date
+
+        today = date.today()
+        iso = today.isocalendar()
+        expected_week = f"{iso.week:02d}"
+
+        (tmp_path / f"digest-{today.isoformat()}.md").write_text("Content", encoding="utf-8")
+
+        cfg = _minimal_config(tmp_path, output_format="email")
+
+        with patch.object(w, "load_config", return_value=cfg), \
+             patch.object(w, "call_claude", return_value="# Weekly Digest\n\nTrends."), \
+             patch.object(w, "send_digest_email") as mock_send, \
+             patch.object(w, "markdown_to_html", return_value="<html>html</html>"), \
+             patch("sys.argv", ["weekly.py"]):
+            with pytest.raises(SystemExit):
+                w.main()
+
+        call_kwargs = mock_send.call_args.kwargs
+        subject = call_kwargs.get("subject", "")
+        assert expected_week in subject, f"Expected week '{expected_week}' in subject, got: {subject!r}"
+
+
+# ---------------------------------------------------------------------------
 # Smoke checks: README.md
 # ---------------------------------------------------------------------------
 

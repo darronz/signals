@@ -242,7 +242,8 @@ def main() -> None:
         subject_week = iso.week
         subject_year = iso.year
         html_digest = markdown_to_html(digest)
-        send_digest_email(digest, html_digest, config)
+        subject = f"Weekly Digest \u2014 Week {subject_week:02d}, {subject_year}"
+        send_digest_email(digest, html_digest, config, subject=subject)
         logger.info(
             "Weekly digest emailed to %s (Week %02d, %d)",
             config.get("digest_recipient", ""),

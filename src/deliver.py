@@ -27,7 +27,12 @@ from email.mime.text import MIMEText
 from pathlib import Path
 
 
-def send_digest_email(markdown_text: str, html_text: str, config: dict) -> None:
+def send_digest_email(
+    markdown_text: str,
+    html_text: str,
+    config: dict,
+    subject: str | None = None,
+) -> None:
     """Send digest as an HTML email via Proton Mail Bridge SMTP.
 
     Uses STARTTLS with CERT_NONE — acceptable for loopback-only Bridge connection.
@@ -41,14 +46,19 @@ def send_digest_email(markdown_text: str, html_text: str, config: dict) -> None:
         html_text:     HTML digest (text/html part).
         config:        Dict with smtp_host, smtp_port, imap_username,
                        imap_password, digest_recipient keys.
+        subject:       Optional email subject. When None (default), falls back to
+                       "Daily Digest — YYYY-MM-DD" for backward compatibility.
+                       Pass an explicit subject for weekly digests, e.g.
+                       "Weekly Digest — Week 11, 2026".
 
     Raises:
         smtplib.SMTPException: On any SMTP error (auth, connection, etc.).
     """
     today = date.today().isoformat()
+    email_subject = subject if subject is not None else f"Daily Digest \u2014 {today}"
 
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"Daily Digest \u2014 {today}"
+    msg["Subject"] = email_subject
     msg["From"] = config["imap_username"]
     msg["To"] = config["digest_recipient"]
 
