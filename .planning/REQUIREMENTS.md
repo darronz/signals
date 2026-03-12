@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Email Fetching
 
-- [ ] **FETCH-01**: Pipeline connects to Proton Mail Bridge via IMAP on localhost:1143 with STARTTLS
-- [ ] **FETCH-02**: Pipeline fetches all messages from a configurable IMAP folder (e.g. Newsletters)
-- [ ] **FETCH-03**: Pipeline filters by configurable sender list as fallback when no folder configured
-- [ ] **FETCH-04**: Pipeline fetches only messages within a configurable time window (default 24h)
-- [ ] **FETCH-05**: Pipeline parses multipart MIME bodies, preferring HTML for richer extraction
+- [x] **FETCH-01**: Pipeline connects to Proton Mail Bridge via IMAP on localhost:1143 with STARTTLS
+- [x] **FETCH-02**: Pipeline fetches all messages from a configurable IMAP folder (e.g. Newsletters)
+- [x] **FETCH-03**: Pipeline filters by configurable sender list as fallback when no folder configured
+- [x] **FETCH-04**: Pipeline fetches only messages within a configurable time window (default 24h)
+- [x] **FETCH-05**: Pipeline parses multipart MIME bodies, preferring HTML for richer extraction
 
 ### Privacy Sanitization
 
@@ -88,11 +88,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FETCH-01 | Phase 2 | Pending |
-| FETCH-02 | Phase 2 | Pending |
-| FETCH-03 | Phase 2 | Pending |
-| FETCH-04 | Phase 2 | Pending |
-| FETCH-05 | Phase 2 | Pending |
+| FETCH-01 | Phase 2 | Complete |
+| FETCH-02 | Phase 2 | Complete |
+| FETCH-03 | Phase 2 | Complete |
+| FETCH-04 | Phase 2 | Complete |
+| FETCH-05 | Phase 2 | Complete |
 | PRIV-01 | Phase 1 | Complete (01-02) |
 | PRIV-02 | Phase 1 | Complete (01-02) |
 | PRIV-03 | Phase 1 | Complete (01-02) |

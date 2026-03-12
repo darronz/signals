@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-02-PLAN.md — privacy sanitizer implementation, all 13 PRIV tests green
-last_updated: "2026-03-11T22:25:15.737Z"
+stopped_at: Completed 02-01-PLAN.md — IMAP fetch module, all 10 FETCH tests green, 23 total tests pass
+last_updated: "2026-03-12T11:46:10.830Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 17
 ---
 
@@ -50,6 +50,7 @@ Progress: [██░░░░░░░░] 17%
 - Trend: faster
 
 *Updated after each plan completion*
+| Phase 02-imap-fetch P01 | 2 | 1 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,9 @@ Recent decisions affecting current work:
 - Pipeline order (HTML-to-text -> URL strip -> PII redact -> truncate) enforced and documented in code — security requirement, not style
 - test_utm_params_stripped updated to use body_text for URL assertions — href attributes not extracted by BS4 get_text()
 - All img tags removed (conservative) — safer than size-based detection per research recommendation
+- [Phase 02-imap-fetch]: base_config fixture kept local to test_fetch.py to avoid naming conflict with sanitizer config fixture in conftest.py
+- [Phase 02-imap-fetch]: Sender filter applied client-side (not server-side SEARCH FROM) — simpler for multi-sender lists; Newsletters folder volume is small
+- [Phase 02-imap-fetch]: imaplib.IMAP4.error and ConnectionRefusedError propagate to orchestrator — Phase 3 maps to exit codes; fetch.py stays thin
 
 ### Pending Todos
 
@@ -85,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11
-Stopped at: Completed 01-02-PLAN.md — privacy sanitizer implementation, all 13 PRIV tests green
+Last session: 2026-03-12T11:46:10.828Z
+Stopped at: Completed 02-01-PLAN.md — IMAP fetch module, all 10 FETCH tests green, 23 total tests pass
 Resume file: None

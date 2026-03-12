@@ -44,7 +44,7 @@ Plans:
   2. Fetched messages use UID mode throughout — no sequence numbers — and return correct messages even when other mail arrives or is deleted during the run
   3. Multipart MIME emails (HTML + text parts) are parsed and the HTML part is preferred for extraction
   4. All fetched messages pass through the sanitizer and produce CleanMessage objects with no PII or tracking artifacts
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 02-01-PLAN.md — TDD: IMAP fetch module (STARTTLS, UID mode, MIME parsing, time/sender filters)
@@ -80,6 +80,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Privacy Sanitizer | 2/2 | Complete | 2026-03-11 |
-| 2. IMAP Fetch | 0/2 | Not started | - |
+| 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 0/TBD | Not started | - |
 | 4. Weekly Rollup, Cron, and Documentation | 0/TBD | Not started | - |
