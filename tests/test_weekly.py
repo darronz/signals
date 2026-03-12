@@ -488,3 +488,18 @@ class TestReadmeSmoke:
 
         missing = [k for k in required_keys if k not in readme]
         assert not missing, f"README.md missing config keys: {missing}"
+
+    def test_readme_contains_required_sections(self) -> None:
+        """README.md contains all required section headings."""
+        readme = (_PROJECT_ROOT / "README.md").read_text(encoding="utf-8")
+
+        required_sections = [
+            "Prerequisites",
+            "Quick Start",
+            "Configuration",
+            "Usage",
+            "Troubleshooting",
+        ]
+
+        missing = [s for s in required_sections if s not in readme]
+        assert not missing, f"README.md missing required sections: {missing}"
