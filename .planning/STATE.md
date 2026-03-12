@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-01-PLAN.md — IMAP fetch module, all 10 FETCH tests green, 23 total tests pass
-last_updated: "2026-03-12T11:46:10.830Z"
+stopped_at: Completed 02-02-PLAN.md — Live Bridge integration verified, 2 tests passed, 1 skipped, phase gate satisfied
+last_updated: "2026-03-12T11:55:18.637Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
   percent: 17
 ---
 
@@ -51,6 +51,7 @@ Progress: [██░░░░░░░░] 17%
 
 *Updated after each plan completion*
 | Phase 02-imap-fetch P01 | 2 | 1 tasks | 2 files |
+| Phase 02-imap-fetch P02 | 10 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,8 @@ Recent decisions affecting current work:
 - [Phase 02-imap-fetch]: base_config fixture kept local to test_fetch.py to avoid naming conflict with sanitizer config fixture in conftest.py
 - [Phase 02-imap-fetch]: Sender filter applied client-side (not server-side SEARCH FROM) — simpler for multi-sender lists; Newsletters folder volume is small
 - [Phase 02-imap-fetch]: imaplib.IMAP4.error and ConnectionRefusedError propagate to orchestrator — Phase 3 maps to exit codes; fetch.py stays thin
+- [Phase 02-02]: SIGNALS_INTEGRATION=1 env var gates integration tests — normal pytest runs skip them, opt-in only
+- [Phase 02-02]: test_fetch_respects_time_window uses SKIP (not FAIL) when 0 messages returned — valid state for quiet inboxes
 
 ### Pending Todos
 
@@ -89,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T11:46:10.828Z
-Stopped at: Completed 02-01-PLAN.md — IMAP fetch module, all 10 FETCH tests green, 23 total tests pass
+Last session: 2026-03-12T11:55:18.634Z
+Stopped at: Completed 02-02-PLAN.md — Live Bridge integration verified, 2 tests passed, 1 skipped, phase gate satisfied
 Resume file: None
