@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 05-02-PLAN.md -- fix hardcoded IMAP port and create run-weekly.sh
-last_updated: "2026-03-12T17:50:00.222Z"
+stopped_at: Completed 05-01-PLAN.md -- Wire DIGEST_WORD_TARGET and fix weekly email subject
+last_updated: "2026-03-12T17:50:37.172Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 17
 ---
 
@@ -58,6 +58,7 @@ Progress: [██░░░░░░░░] 17%
 | Phase 04-weekly-rollup-cron-and-documentation P01 | 3 | 2 tasks | 4 files |
 | Phase 04-weekly-rollup-cron-and-documentation P02 | 2 | 1 tasks | 1 files |
 | Phase 05-tech-debt-cleanup P02 | 2 | 1 tasks | 2 files |
+| Phase 05-tech-debt-cleanup P01 | 2 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,9 @@ Recent decisions affecting current work:
 - [Phase 04-weekly-rollup-cron-and-documentation]: test_readme_contains_required_sections added to TestReadmeSmoke class — keeps all README smoke tests co-located
 - [Phase 05-tech-debt-cleanup]: IMAP_PORT loaded via grep on .env file with :-1143 bash fallback — no external dotenv parser needed in shell
 - [Phase 05-tech-debt-cleanup]: run-weekly.sh structure mirrors run-digest.sh exactly — same prerequisite checks, only python invocation target differs
+- [Phase 05-tech-debt-cleanup]: str.format(word_target=...) used for prompt substitution — keyword-only format avoids positional conflicts; safe because neither prompt contains other curly braces
+- [Phase 05-tech-debt-cleanup]: subject: str | None = None default on send_digest_email() — backward compatible; all existing daily.py callers work without modification
+- [Phase 05-tech-debt-cleanup]: Weekly subject format 'Weekly Digest — Week XX, YYYY' with zero-padded week to match ISO calendar formatting convention
 
 ### Pending Todos
 
@@ -114,6 +118,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T17:50:00.220Z
-Stopped at: Completed 05-02-PLAN.md -- fix hardcoded IMAP port and create run-weekly.sh
+Last session: 2026-03-12T17:50:37.170Z
+Stopped at: Completed 05-01-PLAN.md -- Wire DIGEST_WORD_TARGET and fix weekly email subject
 Resume file: None

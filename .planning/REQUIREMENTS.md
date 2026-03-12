@@ -32,7 +32,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **SUMM-02**: Digest is grouped by theme/topic across all sources, not per-newsletter
 - [x] **SUMM-03**: Digest highlights key trends, notable announcements, and actionable insights
 - [x] **SUMM-04**: Digest flags contradictions between sources
-- [ ] **SUMM-05**: Digest target length is configurable (default ~500 words)
+- [x] **SUMM-05**: Digest target length is configurable (default ~500 words)
 - [x] **SUMM-06**: Digest lists sources (sender domain + subject) at end
 - [x] **SUMM-07**: Summarization prompt is loaded from an external file (prompts/summarize.txt)
 
@@ -41,7 +41,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DLVR-01**: Digest is sent as rendered HTML email via Bridge SMTP to configurable recipient
 - [x] **DLVR-02**: Markdown file of every digest is saved to output directory (digest-YYYY-MM-DD.md)
 - [x] **DLVR-03**: Weekly digest re-summarizes daily markdown files into higher-level trends
-- [ ] **DLVR-04**: Weekly digest is sent as HTML email and saved as markdown file
+- [x] **DLVR-04**: Weekly digest is sent as HTML email and saved as markdown file
 
 ### Operations
 
@@ -105,13 +105,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SUMM-02 | Phase 3 | Complete |
 | SUMM-03 | Phase 3 | Complete |
 | SUMM-04 | Phase 3 | Complete |
-| SUMM-05 | Phase 5 | Pending |
+| SUMM-05 | Phase 5 | Complete |
 | SUMM-06 | Phase 3 | Complete |
 | SUMM-07 | Phase 3 | Complete |
 | DLVR-01 | Phase 3 | Complete |
 | DLVR-02 | Phase 3 | Complete |
 | DLVR-03 | Phase 4 | Complete |
-| DLVR-04 | Phase 5 | Pending |
+| DLVR-04 | Phase 5 | Complete |
 | OPS-01 | Phase 3 | Complete |
 | OPS-02 | Phase 3 | Complete |
 | OPS-03 | Phase 3 | Complete |
