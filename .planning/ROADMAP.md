@@ -92,15 +92,16 @@ Plans:
   2. Weekly digest emails arrive with the correct weekly subject (not "Daily Digest")
   3. `run-digest.sh` reads `IMAP_PORT` from `.env` instead of hardcoding 1143
   4. `run-weekly.sh` exists with the same prerequisite checks as `run-digest.sh` and invokes `weekly.py`
-**Plans:** 0 plans
+**Plans:** 2 plans
 
 Plans:
-- (none yet — run `/gsd:plan-phase 5`)
+- [ ] 05-01-PLAN.md — Wire DIGEST_WORD_TARGET into prompt template + fix weekly email subject
+- [ ] 05-02-PLAN.md — Fix run-digest.sh port hardcode + create run-weekly.sh
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -108,4 +109,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
 | 4. Weekly Rollup, Cron, and Documentation | 2/2 | Complete   | 2026-03-12 |
-| 5. Tech Debt Cleanup | 0/0 | Pending | |
+| 5. Tech Debt Cleanup | 0/2 | Pending | |
