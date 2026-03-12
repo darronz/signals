@@ -16,6 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: IMAP Fetch** - Connect to Proton Mail Bridge, fetch real newsletters, and verify they flow cleanly through the sanitizer
 - [ ] **Phase 3: Summarize, Deliver, and Pipeline Assembly** - Complete the core value loop: Claude CLI summarization, HTML digest delivery, CLI entry point with dry-run and exit codes
 - [x] **Phase 4: Weekly Rollup, Cron, and Documentation** - Automate the daily and weekly schedules and document setup for cold-start use (completed 2026-03-12)
+- [ ] **Phase 5: Tech Debt Cleanup** - Wire dead config keys, fix hardcoded subjects/ports, add weekly cron wrapper
 
 ## Phase Details
 
@@ -81,6 +82,21 @@ Plans:
 - [ ] 04-01-PLAN.md — TDD: Weekly rollup script (file discovery, Claude re-summarization, email/archive delivery)
 - [ ] 04-02-PLAN.md — README documentation (setup guide, config reference, usage docs)
 
+### Phase 5: Tech Debt Cleanup
+**Goal**: All config keys, parameters, and shell scripts work as documented — no dead code, hardcoded values, or missing wrappers
+**Depends on**: Phase 4
+**Requirements**: SUMM-05, DLVR-04, OPS-04
+**Gap Closure:** Closes integration gaps from v1.0 audit
+**Success Criteria** (what must be TRUE):
+  1. Changing `DIGEST_WORD_TARGET` in `.env` actually changes the word target in the Claude summarization prompt
+  2. Weekly digest emails arrive with the correct weekly subject (not "Daily Digest")
+  3. `run-digest.sh` reads `IMAP_PORT` from `.env` instead of hardcoding 1143
+  4. `run-weekly.sh` exists with the same prerequisite checks as `run-digest.sh` and invokes `weekly.py`
+**Plans:** 0 plans
+
+Plans:
+- (none yet — run `/gsd:plan-phase 5`)
+
 ## Progress
 
 **Execution Order:**
@@ -92,3 +108,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
 | 4. Weekly Rollup, Cron, and Documentation | 2/2 | Complete   | 2026-03-12 |
+| 5. Tech Debt Cleanup | 0/0 | Pending | |

@@ -32,7 +32,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **SUMM-02**: Digest is grouped by theme/topic across all sources, not per-newsletter
 - [x] **SUMM-03**: Digest highlights key trends, notable announcements, and actionable insights
 - [x] **SUMM-04**: Digest flags contradictions between sources
-- [x] **SUMM-05**: Digest target length is configurable (default ~500 words)
+- [ ] **SUMM-05**: Digest target length is configurable (default ~500 words)
 - [x] **SUMM-06**: Digest lists sources (sender domain + subject) at end
 - [x] **SUMM-07**: Summarization prompt is loaded from an external file (prompts/summarize.txt)
 
@@ -41,14 +41,14 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DLVR-01**: Digest is sent as rendered HTML email via Bridge SMTP to configurable recipient
 - [x] **DLVR-02**: Markdown file of every digest is saved to output directory (digest-YYYY-MM-DD.md)
 - [x] **DLVR-03**: Weekly digest re-summarizes daily markdown files into higher-level trends
-- [x] **DLVR-04**: Weekly digest is sent as HTML email and saved as markdown file
+- [ ] **DLVR-04**: Weekly digest is sent as HTML email and saved as markdown file
 
 ### Operations
 
 - [x] **OPS-01**: `--dry-run` flag fetches and sanitizes without calling Claude or sending email
 - [x] **OPS-02**: CLI supports `--since`, `--verbose`, `--prompt`, `--output` arguments
 - [x] **OPS-03**: Exit codes: 0 success, 1 config/auth error, 2 no newsletters found, 3 Claude CLI error
-- [x] **OPS-04**: Cron wrapper script (run-digest.sh) checks Bridge is running and Claude CLI is available
+- [ ] **OPS-04**: Cron wrapper script (run-digest.sh) checks Bridge is running and Claude CLI is available
 - [x] **OPS-05**: Dry-run wrapper script (dry-run.sh) for quick inspection
 
 ### Documentation
@@ -105,17 +105,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SUMM-02 | Phase 3 | Complete |
 | SUMM-03 | Phase 3 | Complete |
 | SUMM-04 | Phase 3 | Complete |
-| SUMM-05 | Phase 3 | Complete |
+| SUMM-05 | Phase 5 | Pending |
 | SUMM-06 | Phase 3 | Complete |
 | SUMM-07 | Phase 3 | Complete |
 | DLVR-01 | Phase 3 | Complete |
 | DLVR-02 | Phase 3 | Complete |
 | DLVR-03 | Phase 4 | Complete |
-| DLVR-04 | Phase 4 | Complete |
+| DLVR-04 | Phase 5 | Pending |
 | OPS-01 | Phase 3 | Complete |
 | OPS-02 | Phase 3 | Complete |
 | OPS-03 | Phase 3 | Complete |
-| OPS-04 | Phase 3 | Complete |
+| OPS-04 | Phase 5 | Pending |
 | OPS-05 | Phase 3 | Complete |
 | DOCS-01 | Phase 4 | Complete |
 | DOCS-02 | Phase 1 | Complete (01-01) |
@@ -127,4 +127,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after plan 01-02 completion (PRIV-01 through PRIV-07 complete)*
+*Last updated: 2026-03-12 — SUMM-05, DLVR-04, OPS-04 reassigned to Phase 5 (gap closure)*
