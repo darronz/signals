@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Foundation and Privacy Sanitizer** - Build data contracts and the sanitizer module offline, fully tested before any real email is touched
 - [ ] **Phase 2: IMAP Fetch** - Connect to Proton Mail Bridge, fetch real newsletters, and verify they flow cleanly through the sanitizer
 - [ ] **Phase 3: Summarize, Deliver, and Pipeline Assembly** - Complete the core value loop: Claude CLI summarization, HTML digest delivery, CLI entry point with dry-run and exit codes
-- [ ] **Phase 4: Weekly Rollup, Cron, and Documentation** - Automate the daily and weekly schedules and document setup for cold-start use
+- [x] **Phase 4: Weekly Rollup, Cron, and Documentation** - Automate the daily and weekly schedules and document setup for cold-start use (completed 2026-03-12)
 
 ## Phase Details
 
@@ -75,7 +75,7 @@ Plans:
   1. Running `python scripts/weekly.py` against 7+ saved daily digest files produces an HTML weekly digest email and saves a weekly markdown file
   2. The cron wrapper script (`run-digest.sh`) checks that Proton Mail Bridge is running and Claude CLI is available before invoking the pipeline, and exits non-zero if either prerequisite is absent
   3. A new user following only the README can configure `.env`, install dependencies, and successfully run `--dry-run` to verify their setup without prior knowledge of the codebase
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 04-01-PLAN.md — TDD: Weekly rollup script (file discovery, Claude re-summarization, email/archive delivery)
@@ -91,4 +91,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 1. Foundation and Privacy Sanitizer | 2/2 | Complete | 2026-03-11 |
 | 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
-| 4. Weekly Rollup, Cron, and Documentation | 1/2 | In Progress|  |
+| 4. Weekly Rollup, Cron, and Documentation | 2/2 | Complete   | 2026-03-12 |

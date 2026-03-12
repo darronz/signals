@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-01-PLAN.md -- weekly rollup script, prompt, 29 tests, and README with all 19 config keys
-last_updated: "2026-03-12T13:59:46.277Z"
+stopped_at: Completed 04-02-PLAN.md -- README smoke test for required sections
+last_updated: "2026-03-12T14:02:56.002Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 9
-  completed_plans: 8
+  completed_plans: 9
   percent: 17
 ---
 
@@ -56,6 +56,7 @@ Progress: [██░░░░░░░░] 17%
 | Phase 03-summarize-deliver-and-pipeline-assembly P01 | 8 | 1 tasks | 3 files |
 | Phase 03-summarize-deliver-and-pipeline-assembly P03 | 3 | 2 tasks | 7 files |
 | Phase 04-weekly-rollup-cron-and-documentation P01 | 3 | 2 tasks | 4 files |
+| Phase 04-weekly-rollup-cron-and-documentation P02 | 2 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -96,6 +97,7 @@ Recent decisions affecting current work:
 - [Phase 04-weekly-rollup-cron-and-documentation]: weekly_archive_filename uses date.isocalendar().year not date.today().year — ISO year boundary correctness
 - [Phase 04-weekly-rollup-cron-and-documentation]: glob('digest-*.md') prefix filter prevents weekly-*.md files from being picked up as daily digest input
 - [Phase 04-weekly-rollup-cron-and-documentation]: README config reference derived from src/config.py load_config() line-by-line; smoke test validates sync
+- [Phase 04-weekly-rollup-cron-and-documentation]: test_readme_contains_required_sections added to TestReadmeSmoke class — keeps all README smoke tests co-located
 
 ### Pending Todos
 
@@ -109,6 +111,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T13:59:46.274Z
-Stopped at: Completed 04-01-PLAN.md -- weekly rollup script, prompt, 29 tests, and README with all 19 config keys
+Last session: 2026-03-12T14:02:55.999Z
+Stopped at: Completed 04-02-PLAN.md -- README smoke test for required sections
 Resume file: None

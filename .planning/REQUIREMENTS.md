@@ -53,7 +53,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Documentation
 
-- [ ] **DOCS-01**: README.md with setup guide, usage docs, configuration reference, and examples
+- [x] **DOCS-01**: README.md with setup guide, usage docs, configuration reference, and examples
 - [x] **DOCS-02**: .env.example with placeholder values and descriptive comments
 
 ## v2 Requirements
@@ -117,7 +117,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPS-03 | Phase 3 | Complete |
 | OPS-04 | Phase 3 | Complete |
 | OPS-05 | Phase 3 | Complete |
-| DOCS-01 | Phase 4 | Pending |
+| DOCS-01 | Phase 4 | Complete |
 | DOCS-02 | Phase 1 | Complete (01-01) |
 
 **Coverage:**
