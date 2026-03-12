@@ -11,7 +11,7 @@ Signals fetches newsletters from a Proton Mail inbox, strips tracking links and 
 - **Python 3.10+** — required for `date.isocalendar()` named attributes and `match` statements
 - **Proton Mail Bridge** — must be installed, running, and authenticated; provides the IMAP/SMTP loopback interface
 - **Claude CLI** — must be installed and authenticated (`claude --version` should succeed)
-- **pip / venv** — standard Python tooling
+- **pip / venv** — standard Python tooling (or [uv](https://docs.astral.sh/uv/) as a faster alternative)
 
 ## Quick Start
 
@@ -22,10 +22,14 @@ cd signals
 
 # 2. Create and activate a virtual environment
 python3 -m venv .venv
+# Or with uv:
+# uv venv
 source .venv/bin/activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
+# Or with uv:
+# uv pip install -r requirements.txt
 
 # 4. Copy the example config and fill in your values
 cp .env.example .env
@@ -33,7 +37,11 @@ $EDITOR .env
 
 # 5. Verify setup with a dry-run (no email sent, no Claude call for weekly)
 python scripts/daily.py --dry-run
+# Or with uv:
+# uv run scripts/daily.py --dry-run
 python scripts/weekly.py --dry-run
+# Or with uv:
+# uv run scripts/weekly.py --dry-run
 ```
 
 ## Configuration Reference
@@ -103,6 +111,7 @@ DIGEST_WORD_TARGET=500
 ```bash
 # Full run — fetch, summarize, deliver
 python scripts/daily.py
+# Or with uv: uv run scripts/daily.py [same flags]
 
 # Dry-run — fetch and sanitize only, no Claude call, no email
 python scripts/daily.py --dry-run
@@ -127,6 +136,7 @@ python scripts/daily.py --verbose
 ```bash
 # Full run — read last 7 days of daily digests, synthesize, deliver
 python scripts/weekly.py
+# Or with uv: uv run scripts/weekly.py [same flags]
 
 # Dry-run — report found files, no Claude call, no email
 python scripts/weekly.py --dry-run
@@ -167,6 +177,7 @@ Before enabling email delivery, verify your setup step by step:
 ```bash
 # 1. Check that newsletters can be fetched (no email sent, no Claude)
 python scripts/daily.py --dry-run
+# Or with uv: uv run scripts/daily.py --dry-run
 
 # 2. Check that daily digest files exist for weekly rollup
 python scripts/weekly.py --dry-run
@@ -187,9 +198,13 @@ To run the daily digest automatically at 7 AM local time:
 ```cron
 # Daily digest at 7:00 AM
 0 7 * * * /path/to/signals/.venv/bin/python /path/to/signals/scripts/daily.py >> /var/log/signals-daily.log 2>&1
+# Or with uv:
+# 0 7 * * * cd /path/to/signals && uv run scripts/daily.py >> /var/log/signals-daily.log 2>&1
 
 # Weekly rollup every Monday at 8:00 AM
 0 8 * * 1 /path/to/signals/.venv/bin/python /path/to/signals/scripts/weekly.py >> /var/log/signals-weekly.log 2>&1
+# Or with uv:
+# 0 8 * * 1 cd /path/to/signals && uv run scripts/weekly.py >> /var/log/signals-weekly.log 2>&1
 ```
 
 **Important:** Use absolute paths in cron entries. Scripts resolve the prompt file path relative to `__file__`, so they are cron-safe.
@@ -234,6 +249,8 @@ Ensure you are running Python 3.10+. The ISO week year is computed correctly via
 ```bash
 # Full test suite
 .venv/bin/pytest tests/ -q
+# Or with uv:
+# uv run pytest tests/ -q
 
 # Weekly rollup tests only
 .venv/bin/pytest tests/test_weekly.py -q
@@ -246,4 +263,6 @@ Integration tests (requiring live IMAP) are gated behind `SIGNALS_INTEGRATION=1`
 
 ```bash
 SIGNALS_INTEGRATION=1 .venv/bin/pytest tests/test_fetch_integration.py -q
+# Or with uv:
+# SIGNALS_INTEGRATION=1 uv run pytest tests/test_fetch_integration.py -q
 ```
