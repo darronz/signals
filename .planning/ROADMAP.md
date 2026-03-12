@@ -75,16 +75,20 @@ Plans:
   1. Running `python scripts/weekly.py` against 7+ saved daily digest files produces an HTML weekly digest email and saves a weekly markdown file
   2. The cron wrapper script (`run-digest.sh`) checks that Proton Mail Bridge is running and Claude CLI is available before invoking the pipeline, and exits non-zero if either prerequisite is absent
   3. A new user following only the README can configure `.env`, install dependencies, and successfully run `--dry-run` to verify their setup without prior knowledge of the codebase
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — TDD: Weekly rollup script (file discovery, Claude re-summarization, email/archive delivery)
+- [ ] 04-02-PLAN.md — README documentation (setup guide, config reference, usage docs)
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Privacy Sanitizer | 2/2 | Complete | 2026-03-11 |
 | 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
-| 4. Weekly Rollup, Cron, and Documentation | 0/TBD | Not started | - |
+| 4. Weekly Rollup, Cron, and Documentation | 0/2 | Not started | - |
