@@ -60,7 +60,7 @@ Plans:
   3. Running with `--dry-run` fetches and sanitizes without calling Claude or sending email, and exits 0
   4. When no newsletters are found the script exits with code 2; when Claude CLI fails it exits with code 3; config errors exit with code 1
   5. The `--since`, `--verbose`, and `--prompt` CLI arguments work as documented
-**Plans:** 3 plans
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — TDD: Summarization module (Claude CLI subprocess, prompt loading, newsletter concatenation)
@@ -86,5 +86,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation and Privacy Sanitizer | 2/2 | Complete | 2026-03-11 |
 | 2. IMAP Fetch | 1/2 | In Progress|  |
-| 3. Summarize, Deliver, and Pipeline Assembly | 0/3 | Not started | - |
+| 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
 | 4. Weekly Rollup, Cron, and Documentation | 0/TBD | Not started | - |

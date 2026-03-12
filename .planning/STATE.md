@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-02-PLAN.md — Live Bridge integration verified, 2 tests passed, 1 skipped, phase gate satisfied
-last_updated: "2026-03-12T11:58:46.223Z"
+stopped_at: Completed 03-02-PLAN.md — deliver.py with STARTTLS email + markdown archive, 14 tests pass
+last_updated: "2026-03-12T12:28:40.579Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 7
+  completed_plans: 6
   percent: 17
 ---
 
@@ -52,6 +52,8 @@ Progress: [██░░░░░░░░] 17%
 *Updated after each plan completion*
 | Phase 02-imap-fetch P01 | 2 | 1 tasks | 2 files |
 | Phase 02-imap-fetch P02 | 10 | 2 tasks | 1 files |
+| Phase 03-summarize-deliver-and-pipeline-assembly P02 | 2 | 1 tasks | 2 files |
+| Phase 03-summarize-deliver-and-pipeline-assembly P01 | 8 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -79,6 +81,9 @@ Recent decisions affecting current work:
 - [Phase 02-imap-fetch]: imaplib.IMAP4.error and ConnectionRefusedError propagate to orchestrator — Phase 3 maps to exit codes; fetch.py stays thin
 - [Phase 02-02]: SIGNALS_INTEGRATION=1 env var gates integration tests — normal pytest runs skip them, opt-in only
 - [Phase 02-02]: test_fetch_respects_time_window uses SKIP (not FAIL) when 0 messages returned — valid state for quiet inboxes
+- [Phase 03-02]: STARTTLS order enforced by method_calls index assertion in test — not just presence
+- [Phase 03-02]: No sys.exit() in deliver.py — exceptions propagate to scripts/daily.py for exit code mapping
+- [Phase 03-02]: Hand-rolled markdown converter covers fixed digest structure (headers, bullets, bold) without external dependency
 
 ### Pending Todos
 
@@ -92,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T11:55:18.634Z
-Stopped at: Completed 02-02-PLAN.md — Live Bridge integration verified, 2 tests passed, 1 skipped, phase gate satisfied
+Last session: 2026-03-12T12:28:29.365Z
+Stopped at: Completed 03-02-PLAN.md — deliver.py with STARTTLS email + markdown archive, 14 tests pass
 Resume file: None
