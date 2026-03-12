@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-02-PLAN.md — deliver.py with STARTTLS email + markdown archive, 14 tests pass
-last_updated: "2026-03-12T12:28:40.579Z"
+stopped_at: Completed 03-01-PLAN.md — summarization module built, 14 tests passing, prompts/summarize.txt created
+last_updated: "2026-03-12T12:28:52.773Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
@@ -84,6 +84,9 @@ Recent decisions affecting current work:
 - [Phase 03-02]: STARTTLS order enforced by method_calls index assertion in test — not just presence
 - [Phase 03-02]: No sys.exit() in deliver.py — exceptions propagate to scripts/daily.py for exit code mapping
 - [Phase 03-02]: Hand-rolled markdown converter covers fixed digest structure (headers, bullets, bold) without external dependency
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: Prompt text lives in prompts/summarize.txt, not Python source — SUMM-07 and anti-hardcoding rule
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: call_claude raises RuntimeError for both non-zero exit AND empty stdout — prevents silent empty digest
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: FileNotFoundError propagates unchanged from call_claude — orchestrator maps to exit code 3
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T12:28:29.365Z
-Stopped at: Completed 03-02-PLAN.md — deliver.py with STARTTLS email + markdown archive, 14 tests pass
+Last session: 2026-03-12T12:28:52.771Z
+Stopped at: Completed 03-01-PLAN.md — summarization module built, 14 tests passing, prompts/summarize.txt created
 Resume file: None

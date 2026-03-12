@@ -28,18 +28,18 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Summarization
 
-- [ ] **SUMM-01**: Pipeline pipes sanitized text to Claude Code CLI (`claude -p`) via subprocess stdin
-- [ ] **SUMM-02**: Digest is grouped by theme/topic across all sources, not per-newsletter
-- [ ] **SUMM-03**: Digest highlights key trends, notable announcements, and actionable insights
-- [ ] **SUMM-04**: Digest flags contradictions between sources
-- [ ] **SUMM-05**: Digest target length is configurable (default ~500 words)
-- [ ] **SUMM-06**: Digest lists sources (sender domain + subject) at end
-- [ ] **SUMM-07**: Summarization prompt is loaded from an external file (prompts/summarize.txt)
+- [x] **SUMM-01**: Pipeline pipes sanitized text to Claude Code CLI (`claude -p`) via subprocess stdin
+- [x] **SUMM-02**: Digest is grouped by theme/topic across all sources, not per-newsletter
+- [x] **SUMM-03**: Digest highlights key trends, notable announcements, and actionable insights
+- [x] **SUMM-04**: Digest flags contradictions between sources
+- [x] **SUMM-05**: Digest target length is configurable (default ~500 words)
+- [x] **SUMM-06**: Digest lists sources (sender domain + subject) at end
+- [x] **SUMM-07**: Summarization prompt is loaded from an external file (prompts/summarize.txt)
 
 ### Delivery & Archival
 
-- [ ] **DLVR-01**: Digest is sent as rendered HTML email via Bridge SMTP to configurable recipient
-- [ ] **DLVR-02**: Markdown file of every digest is saved to output directory (digest-YYYY-MM-DD.md)
+- [x] **DLVR-01**: Digest is sent as rendered HTML email via Bridge SMTP to configurable recipient
+- [x] **DLVR-02**: Markdown file of every digest is saved to output directory (digest-YYYY-MM-DD.md)
 - [ ] **DLVR-03**: Weekly digest re-summarizes daily markdown files into higher-level trends
 - [ ] **DLVR-04**: Weekly digest is sent as HTML email and saved as markdown file
 
@@ -101,15 +101,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRIV-06 | Phase 1 | Complete (01-02) |
 | PRIV-07 | Phase 1 | Complete (01-02) |
 | PRIV-08 | Phase 1 | Complete (01-01) |
-| SUMM-01 | Phase 3 | Pending |
-| SUMM-02 | Phase 3 | Pending |
-| SUMM-03 | Phase 3 | Pending |
-| SUMM-04 | Phase 3 | Pending |
-| SUMM-05 | Phase 3 | Pending |
-| SUMM-06 | Phase 3 | Pending |
-| SUMM-07 | Phase 3 | Pending |
-| DLVR-01 | Phase 3 | Pending |
-| DLVR-02 | Phase 3 | Pending |
+| SUMM-01 | Phase 3 | Complete |
+| SUMM-02 | Phase 3 | Complete |
+| SUMM-03 | Phase 3 | Complete |
+| SUMM-04 | Phase 3 | Complete |
+| SUMM-05 | Phase 3 | Complete |
+| SUMM-06 | Phase 3 | Complete |
+| SUMM-07 | Phase 3 | Complete |
+| DLVR-01 | Phase 3 | Complete |
+| DLVR-02 | Phase 3 | Complete |
 | DLVR-03 | Phase 4 | Pending |
 | DLVR-04 | Phase 4 | Pending |
 | OPS-01 | Phase 3 | Pending |
