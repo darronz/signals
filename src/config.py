@@ -58,6 +58,7 @@ def load_config() -> dict:
             if p.strip()
         ],
         "max_body_chars": int(os.environ.get("MAX_BODY_CHARS", "15000")),
+        "digest_word_target": int(os.environ.get("DIGEST_WORD_TARGET", "500")),
     }
 
 
