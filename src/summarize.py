@@ -11,6 +11,7 @@ Anti-patterns avoided (per Phase 2 decisions and research):
 - No hardcoded prompt text — loaded from external prompts/summarize.txt
 """
 
+import os
 import subprocess
 from pathlib import Path
 
@@ -70,11 +71,14 @@ def call_claude(prompt_file: str, newsletter_text: str, config: dict) -> str:
     if config.get("claude_model"):
         cmd += ["--model", config["claude_model"]]
 
+    env = {k: v for k, v in os.environ.items() if k != "CLAUDECODE"}
+
     result = subprocess.run(
         cmd,
         input=newsletter_text,
         capture_output=True,
         text=True,
+        env=env,
     )
 
     if result.returncode != 0:
