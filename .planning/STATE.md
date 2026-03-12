@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-03-PLAN.md -- pipeline assembly complete, 15 tests, shell wrappers with Bridge/claude prereq checks
-last_updated: "2026-03-12T12:37:21.546Z"
+stopped_at: Completed 04-01-PLAN.md -- weekly rollup script, prompt, 29 tests, and README with all 19 config keys
+last_updated: "2026-03-12T13:59:46.277Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 9
+  completed_plans: 8
   percent: 17
 ---
 
@@ -55,6 +55,7 @@ Progress: [██░░░░░░░░] 17%
 | Phase 03-summarize-deliver-and-pipeline-assembly P02 | 2 | 1 tasks | 2 files |
 | Phase 03-summarize-deliver-and-pipeline-assembly P01 | 8 | 1 tasks | 3 files |
 | Phase 03-summarize-deliver-and-pipeline-assembly P03 | 3 | 2 tasks | 7 files |
+| Phase 04-weekly-rollup-cron-and-documentation P01 | 3 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,10 @@ Recent decisions affecting current work:
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: Prompt path uses Path(__file__).parent.parent for cron-safety (Pitfall 3)
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: save_archive always called regardless of output_format (DLVR-02 unconditional)
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: SMTP keys not required at load_config time; only validated at send time (Pitfall 7)
+- [Phase 04-weekly-rollup-cron-and-documentation]: Weekly archive written directly in weekly.py not via save_archive() — hardcodes daily filename and has 13 tests
+- [Phase 04-weekly-rollup-cron-and-documentation]: weekly_archive_filename uses date.isocalendar().year not date.today().year — ISO year boundary correctness
+- [Phase 04-weekly-rollup-cron-and-documentation]: glob('digest-*.md') prefix filter prevents weekly-*.md files from being picked up as daily digest input
+- [Phase 04-weekly-rollup-cron-and-documentation]: README config reference derived from src/config.py load_config() line-by-line; smoke test validates sync
 
 ### Pending Todos
 
@@ -104,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T12:34:01.410Z
-Stopped at: Completed 03-03-PLAN.md -- pipeline assembly complete, 15 tests, shell wrappers with Bridge/claude prereq checks
+Last session: 2026-03-12T13:59:46.274Z
+Stopped at: Completed 04-01-PLAN.md -- weekly rollup script, prompt, 29 tests, and README with all 19 config keys
 Resume file: None
