@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md — summarization module built, 14 tests passing, prompts/summarize.txt created
-last_updated: "2026-03-12T12:28:52.773Z"
+stopped_at: Completed 03-03-PLAN.md -- pipeline assembly complete, 15 tests, shell wrappers with Bridge/claude prereq checks
+last_updated: "2026-03-12T12:34:01.412Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
   percent: 17
 ---
 
@@ -54,6 +54,7 @@ Progress: [██░░░░░░░░] 17%
 | Phase 02-imap-fetch P02 | 10 | 2 tasks | 1 files |
 | Phase 03-summarize-deliver-and-pipeline-assembly P02 | 2 | 1 tasks | 2 files |
 | Phase 03-summarize-deliver-and-pipeline-assembly P01 | 8 | 1 tasks | 3 files |
+| Phase 03-summarize-deliver-and-pipeline-assembly P03 | 3 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,9 @@ Recent decisions affecting current work:
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: Prompt text lives in prompts/summarize.txt, not Python source — SUMM-07 and anti-hardcoding rule
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: call_claude raises RuntimeError for both non-zero exit AND empty stdout — prevents silent empty digest
 - [Phase 03-summarize-deliver-and-pipeline-assembly]: FileNotFoundError propagates unchanged from call_claude — orchestrator maps to exit code 3
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: Prompt path uses Path(__file__).parent.parent for cron-safety (Pitfall 3)
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: save_archive always called regardless of output_format (DLVR-02 unconditional)
+- [Phase 03-summarize-deliver-and-pipeline-assembly]: SMTP keys not required at load_config time; only validated at send time (Pitfall 7)
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T12:28:52.771Z
-Stopped at: Completed 03-01-PLAN.md — summarization module built, 14 tests passing, prompts/summarize.txt created
+Last session: 2026-03-12T12:34:01.410Z
+Stopped at: Completed 03-03-PLAN.md -- pipeline assembly complete, 15 tests, shell wrappers with Bridge/claude prereq checks
 Resume file: None
