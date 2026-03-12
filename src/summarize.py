@@ -63,6 +63,8 @@ def call_claude(prompt_file: str, newsletter_text: str, config: dict) -> str:
             includes the exit code and stderr), or if claude returns empty stdout.
     """
     prompt = Path(prompt_file).read_text(encoding="utf-8")
+    word_target = config.get("digest_word_target", 500)
+    prompt = prompt.format(word_target=word_target)
 
     cmd = [config["claude_cmd"], "-p", prompt, "--output-format", "text"]
     if config.get("claude_model"):

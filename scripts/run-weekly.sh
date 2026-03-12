@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# run-digest.sh — cron wrapper for the Signals newsletter digest pipeline
+# run-weekly.sh — cron wrapper for the Signals newsletter weekly rollup pipeline
 #
 # Checks prerequisites (Bridge IMAP port, claude CLI), activates the venv,
-# then invokes scripts/daily.py with any arguments passed to this script.
+# then invokes scripts/weekly.py with any arguments passed to this script.
 #
 # Usage:
-#   ./scripts/run-digest.sh [--dry-run] [--since HOURS] [--verbose] ...
+#   ./scripts/run-weekly.sh [--dry-run] [--verbose] ...
 #
-# Exit codes mirror daily.py:
+# Exit codes mirror weekly.py:
 #   0 — success (or --dry-run)
 #   1 — prerequisite not met, config/auth error, IMAP error
 #   2 — no newsletters found
@@ -42,4 +42,4 @@ fi
 source "${PROJECT_DIR}/.venv/bin/activate"
 
 # --- Run the pipeline ---
-python "${PROJECT_DIR}/scripts/daily.py" "$@"
+python "${PROJECT_DIR}/scripts/weekly.py" "$@"

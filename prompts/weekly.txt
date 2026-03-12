@@ -18,6 +18,6 @@ Emerging patterns or early indicators worth monitoring in the coming week.
 ## Sources Overview
 Brief listing of the daily digests included (dates covered).
 
-Be concise. Target ~600 words total. Focus on week-over-week patterns,
+Be concise. Target ~{word_target} words total. Focus on week-over-week patterns,
 not just what happened on individual days.
 Do not include personal information, email addresses, or names.

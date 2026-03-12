@@ -16,7 +16,7 @@ Anything interesting that doesn't fit the above, as brief one-liners.
 ## Sources
 List each newsletter source and subject included in this digest.
 
-Be concise. Target ~500 words total. Group by topic, not by source.
+Be concise. Target ~{word_target} words total. Group by topic, not by source.
 Flag any contradictions or conflicts between sources.
 Do not include any personal information, email addresses, or names
 even if they appear in the input.

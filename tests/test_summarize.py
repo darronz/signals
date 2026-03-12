@@ -156,9 +156,49 @@ def test_prompt_contains_contradiction_instruction():
 
 @pytest.mark.skipif(not PROMPT_PATH.exists(), reason="prompts/summarize.txt not yet created")
 def test_prompt_contains_word_target():
-    """Prompt contains a word count target."""
-    content = PROMPT_PATH.read_text(encoding="utf-8").lower()
-    assert "500" in content or "word" in content
+    """Prompt contains a word_target placeholder (templated, not static '500')."""
+    content = PROMPT_PATH.read_text(encoding="utf-8")
+    assert "{word_target}" in content
+
+
+# ---------------------------------------------------------------------------
+# SUMM-05 — DIGEST_WORD_TARGET config key wired into prompt template
+# ---------------------------------------------------------------------------
+
+def test_word_target_injected_into_prompt(tmp_path):
+    """call_claude substitutes config['digest_word_target'] into {word_target} placeholder."""
+    prompt_file = tmp_path / "prompt_with_target.txt"
+    prompt_file.write_text("Target ~{word_target} words.", encoding="utf-8")
+
+    config = {"claude_cmd": "claude", "claude_model": "", "digest_word_target": 800}
+    mock_result = MagicMock(returncode=0, stdout="digest output", stderr="")
+
+    with patch("subprocess.run", return_value=mock_result) as mock_run:
+        from src.summarize import call_claude
+        call_claude(str(prompt_file), "newsletter text", config)
+
+    cmd = mock_run.call_args.args[0]
+    # "800" must be in the -p argument, not "500"
+    prompt_arg = cmd[cmd.index("-p") + 1]
+    assert "800" in prompt_arg, f"Expected '800' in prompt, got: {prompt_arg!r}"
+    assert "500" not in prompt_arg, "Default '500' should NOT appear when config specifies 800"
+
+
+def test_word_target_defaults_to_500_when_missing(tmp_path):
+    """call_claude falls back to 500 when digest_word_target is absent from config."""
+    prompt_file = tmp_path / "prompt_no_target.txt"
+    prompt_file.write_text("Target ~{word_target} words.", encoding="utf-8")
+
+    config = {"claude_cmd": "claude", "claude_model": ""}  # no digest_word_target key
+    mock_result = MagicMock(returncode=0, stdout="digest output", stderr="")
+
+    with patch("subprocess.run", return_value=mock_result) as mock_run:
+        from src.summarize import call_claude
+        call_claude(str(prompt_file), "newsletter text", config)
+
+    cmd = mock_run.call_args.args[0]
+    prompt_arg = cmd[cmd.index("-p") + 1]
+    assert "500" in prompt_arg, f"Expected default '500' in prompt, got: {prompt_arg!r}"
 
 
 @pytest.mark.skipif(not PROMPT_PATH.exists(), reason="prompts/summarize.txt not yet created")
