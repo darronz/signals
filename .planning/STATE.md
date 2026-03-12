@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-02-PLAN.md -- README smoke test for required sections
-last_updated: "2026-03-12T14:06:18.953Z"
+stopped_at: Completed 05-02-PLAN.md -- fix hardcoded IMAP port and create run-weekly.sh
+last_updated: "2026-03-12T17:50:00.222Z"
 last_activity: 2026-03-11 — Plan 01-02 complete
 progress:
-  total_phases: 4
+  total_phases: 5
   completed_phases: 4
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 11
+  completed_plans: 10
   percent: 17
 ---
 
@@ -57,6 +57,7 @@ Progress: [██░░░░░░░░] 17%
 | Phase 03-summarize-deliver-and-pipeline-assembly P03 | 3 | 2 tasks | 7 files |
 | Phase 04-weekly-rollup-cron-and-documentation P01 | 3 | 2 tasks | 4 files |
 | Phase 04-weekly-rollup-cron-and-documentation P02 | 2 | 1 tasks | 1 files |
+| Phase 05-tech-debt-cleanup P02 | 2 | 1 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,8 @@ Recent decisions affecting current work:
 - [Phase 04-weekly-rollup-cron-and-documentation]: glob('digest-*.md') prefix filter prevents weekly-*.md files from being picked up as daily digest input
 - [Phase 04-weekly-rollup-cron-and-documentation]: README config reference derived from src/config.py load_config() line-by-line; smoke test validates sync
 - [Phase 04-weekly-rollup-cron-and-documentation]: test_readme_contains_required_sections added to TestReadmeSmoke class — keeps all README smoke tests co-located
+- [Phase 05-tech-debt-cleanup]: IMAP_PORT loaded via grep on .env file with :-1143 bash fallback — no external dotenv parser needed in shell
+- [Phase 05-tech-debt-cleanup]: run-weekly.sh structure mirrors run-digest.sh exactly — same prerequisite checks, only python invocation target differs
 
 ### Pending Todos
 
@@ -111,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T14:02:55.999Z
-Stopped at: Completed 04-02-PLAN.md -- README smoke test for required sections
+Last session: 2026-03-12T17:50:00.220Z
+Stopped at: Completed 05-02-PLAN.md -- fix hardcoded IMAP port and create run-weekly.sh
 Resume file: None

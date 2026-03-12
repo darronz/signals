@@ -48,7 +48,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **OPS-01**: `--dry-run` flag fetches and sanitizes without calling Claude or sending email
 - [x] **OPS-02**: CLI supports `--since`, `--verbose`, `--prompt`, `--output` arguments
 - [x] **OPS-03**: Exit codes: 0 success, 1 config/auth error, 2 no newsletters found, 3 Claude CLI error
-- [ ] **OPS-04**: Cron wrapper script (run-digest.sh) checks Bridge is running and Claude CLI is available
+- [x] **OPS-04**: Cron wrapper script (run-digest.sh) checks Bridge is running and Claude CLI is available
 - [x] **OPS-05**: Dry-run wrapper script (dry-run.sh) for quick inspection
 
 ### Documentation
@@ -115,7 +115,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPS-01 | Phase 3 | Complete |
 | OPS-02 | Phase 3 | Complete |
 | OPS-03 | Phase 3 | Complete |
-| OPS-04 | Phase 5 | Pending |
+| OPS-04 | Phase 5 | Complete |
 | OPS-05 | Phase 3 | Complete |
 | DOCS-01 | Phase 4 | Complete |
 | DOCS-02 | Phase 1 | Complete (01-01) |

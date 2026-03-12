@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: IMAP Fetch** - Connect to Proton Mail Bridge, fetch real newsletters, and verify they flow cleanly through the sanitizer
 - [ ] **Phase 3: Summarize, Deliver, and Pipeline Assembly** - Complete the core value loop: Claude CLI summarization, HTML digest delivery, CLI entry point with dry-run and exit codes
 - [x] **Phase 4: Weekly Rollup, Cron, and Documentation** - Automate the daily and weekly schedules and document setup for cold-start use (completed 2026-03-12)
-- [ ] **Phase 5: Tech Debt Cleanup** - Wire dead config keys, fix hardcoded subjects/ports, add weekly cron wrapper
+- [x] **Phase 5: Tech Debt Cleanup** - Wire dead config keys, fix hardcoded subjects/ports, add weekly cron wrapper (completed 2026-03-12)
 
 ## Phase Details
 
@@ -92,7 +92,7 @@ Plans:
   2. Weekly digest emails arrive with the correct weekly subject (not "Daily Digest")
   3. `run-digest.sh` reads `IMAP_PORT` from `.env` instead of hardcoding 1143
   4. `run-weekly.sh` exists with the same prerequisite checks as `run-digest.sh` and invokes `weekly.py`
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Wire DIGEST_WORD_TARGET into prompt template + fix weekly email subject
@@ -109,4 +109,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. IMAP Fetch | 1/2 | In Progress|  |
 | 3. Summarize, Deliver, and Pipeline Assembly | 2/3 | In Progress|  |
 | 4. Weekly Rollup, Cron, and Documentation | 2/2 | Complete   | 2026-03-12 |
-| 5. Tech Debt Cleanup | 0/2 | Pending | |
+| 5. Tech Debt Cleanup | 2/2 | Complete   | 2026-03-12 |
