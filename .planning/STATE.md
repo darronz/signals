@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: MVP
 status: completed
 stopped_at: v1.0 milestone complete
-last_updated: "2026-03-12"
-last_activity: 2026-03-12 — v1.0 milestone archived
+last_updated: "2026-03-13"
+last_activity: 2026-03-13 — quick task 2 complete (DIGEST_INCLUDE_URLS + URL HTML rendering)
 progress:
   total_phases: 5
   completed_phases: 5
@@ -35,9 +35,10 @@ Progress: [██████████] 100%
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 1 | Add uv alternative instructions to README.md | 2026-03-12 | 9790d8e | [1-add-uv-alternative-instructions-to-readm](./quick/1-add-uv-alternative-instructions-to-readm/) |
+| 2 | Add DIGEST_INCLUDE_URLS option and URL HTML rendering | 2026-03-13 | 542a053 | [2-add-option-to-include-urls-in-digest-ema](./quick/2-add-option-to-include-urls-in-digest-ema/) |
 
 ## Session Continuity
 
-Last session: 2026-03-12
-Stopped at: Completed quick-01 (uv alternative instructions in README)
+Last session: 2026-03-13
+Stopped at: Completed quick-02 (DIGEST_INCLUDE_URLS + URL HTML link rendering)
 Resume file: None
