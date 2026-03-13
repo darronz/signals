@@ -201,3 +201,43 @@ def test_markdown_to_html_wraps_in_html():
     from src.deliver import markdown_to_html
     result = markdown_to_html("## Title")
     assert result.strip().startswith("<html>")
+
+
+# ---------------------------------------------------------------------------
+# URL rendering — markdown links and bare URLs in HTML email
+# ---------------------------------------------------------------------------
+
+def test_apply_inline_markdown_link():
+    """[text](url) is converted to <a href="url">text</a>."""
+    from src.deliver import _apply_inline
+    result = _apply_inline("[OpenAI](https://openai.com)")
+    assert result == '<a href="https://openai.com">OpenAI</a>'
+
+
+def test_apply_inline_bare_url():
+    """Bare https:// URL is wrapped in an <a> tag."""
+    from src.deliver import _apply_inline
+    result = _apply_inline("See https://example.com for details")
+    assert '<a href="https://example.com">https://example.com</a>' in result
+
+
+def test_apply_inline_no_double_wrap():
+    """A URL inside a markdown link is not double-wrapped."""
+    from src.deliver import _apply_inline
+    result = _apply_inline("[link](https://x.com)")
+    assert result.count("<a") == 1, f"Expected exactly one <a tag, got: {result!r}"
+
+
+def test_apply_inline_bold_and_link():
+    """Both **bold** and [link](url) are handled in the same string."""
+    from src.deliver import _apply_inline
+    result = _apply_inline("**Bold** and [link](https://x.com)")
+    assert "<strong>" in result
+    assert '<a href="https://x.com">' in result
+
+
+def test_markdown_to_html_with_link():
+    """A bullet with a markdown link produces a clickable <a> tag."""
+    from src.deliver import markdown_to_html
+    result = markdown_to_html("- Check [article](https://example.com/post)")
+    assert '<a href="https://example.com/post">article</a>' in result
