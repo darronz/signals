@@ -174,5 +174,23 @@ def markdown_to_html(md: str) -> str:
 
 
 def _apply_inline(text: str) -> str:
-    """Apply inline markdown: **bold** -> <strong>bold</strong>."""
-    return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+    """Apply inline markdown formatting to HTML.
+
+    Handles: **bold** -> <strong>, [text](url) -> <a href>, bare URLs -> <a href>.
+    Order: bold first, then markdown links, then bare URLs (to avoid double-wrapping).
+    """
+    # 1. Bold: **text** -> <strong>text</strong>
+    text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+    # 2. Markdown links: [text](url) -> <a href="url">text</a>
+    text = re.sub(
+        r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+        r'<a href="\2">\1</a>',
+        text,
+    )
+    # 3. Bare URLs not already inside an href="..." or >...</a>
+    text = re.sub(
+        r'(?<!href=")(?<!>)(https?://[^\s<)\]]+)',
+        r'<a href="\1">\1</a>',
+        text,
+    )
+    return text
