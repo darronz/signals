@@ -65,7 +65,12 @@ def call_claude(prompt_file: str, newsletter_text: str, config: dict) -> str:
     """
     prompt = Path(prompt_file).read_text(encoding="utf-8")
     word_target = config.get("digest_word_target", 500)
-    prompt = prompt.format(word_target=word_target)
+    include_urls = config.get("digest_include_urls", False)
+    url_instruction = (
+        "Include relevant source URLs as markdown links [title](url) "
+        "where available. Prefer linking to the original article or announcement."
+    ) if include_urls else ""
+    prompt = prompt.format(word_target=word_target, url_instruction=url_instruction)
 
     cmd = [config["claude_cmd"], "-p", prompt, "--output-format", "text"]
     if config.get("claude_model"):

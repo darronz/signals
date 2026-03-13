@@ -59,6 +59,7 @@ def load_config() -> dict:
         ],
         "max_body_chars": int(os.environ.get("MAX_BODY_CHARS", "15000")),
         "digest_word_target": int(os.environ.get("DIGEST_WORD_TARGET", "500")),
+        "digest_include_urls": os.environ.get("DIGEST_INCLUDE_URLS", "").lower() in ("true", "1", "yes"),
     }
 
 

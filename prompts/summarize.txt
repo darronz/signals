@@ -17,6 +17,7 @@ Anything interesting that doesn't fit the above, as brief one-liners.
 List each newsletter source and subject included in this digest.
 
 Be concise. Target ~{word_target} words total. Group by topic, not by source.
+{url_instruction}
 Flag any contradictions or conflicts between sources.
 Do not include any personal information, email addresses, or names
 even if they appear in the input.
