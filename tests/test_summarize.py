@@ -269,3 +269,93 @@ def test_call_claude_with_model_flag(tmp_path):
     cmd = mock_run.call_args.args[0]
     assert "--model" in cmd
     assert "claude-opus-4-5" in cmd
+
+
+# ---------------------------------------------------------------------------
+# DIGEST_INCLUDE_URLS — conditional URL instruction in prompt
+# ---------------------------------------------------------------------------
+
+def test_include_urls_true_adds_url_instruction(tmp_path):
+    """When digest_include_urls=True, prompt includes 'source URLs' instruction."""
+    prompt_file = tmp_path / "prompt.txt"
+    prompt_file.write_text(
+        "Target ~{word_target} words.\n{url_instruction}", encoding="utf-8"
+    )
+
+    config = {
+        "claude_cmd": "claude",
+        "claude_model": "",
+        "digest_word_target": 500,
+        "digest_include_urls": True,
+    }
+    mock_result = MagicMock(returncode=0, stdout="digest output", stderr="")
+
+    with patch("subprocess.run", return_value=mock_result) as mock_run:
+        from src.summarize import call_claude
+        call_claude(str(prompt_file), "newsletter text", config)
+
+    cmd = mock_run.call_args.args[0]
+    prompt_arg = cmd[cmd.index("-p") + 1]
+    assert "source URLs" in prompt_arg, (
+        f"Expected 'source URLs' in prompt when digest_include_urls=True, got: {prompt_arg!r}"
+    )
+
+
+def test_include_urls_false_no_url_instruction(tmp_path):
+    """When digest_include_urls=False, prompt does NOT contain URL instruction."""
+    prompt_file = tmp_path / "prompt.txt"
+    prompt_file.write_text(
+        "Target ~{word_target} words.\n{url_instruction}", encoding="utf-8"
+    )
+
+    config = {
+        "claude_cmd": "claude",
+        "claude_model": "",
+        "digest_word_target": 500,
+        "digest_include_urls": False,
+    }
+    mock_result = MagicMock(returncode=0, stdout="digest output", stderr="")
+
+    with patch("subprocess.run", return_value=mock_result) as mock_run:
+        from src.summarize import call_claude
+        call_claude(str(prompt_file), "newsletter text", config)
+
+    cmd = mock_run.call_args.args[0]
+    prompt_arg = cmd[cmd.index("-p") + 1]
+    assert "source URLs" not in prompt_arg, (
+        f"Expected no 'source URLs' in prompt when digest_include_urls=False, got: {prompt_arg!r}"
+    )
+
+
+def test_include_urls_missing_no_url_instruction(tmp_path):
+    """When digest_include_urls key is absent, prompt does NOT contain URL instruction."""
+    prompt_file = tmp_path / "prompt.txt"
+    prompt_file.write_text(
+        "Target ~{word_target} words.\n{url_instruction}", encoding="utf-8"
+    )
+
+    config = {
+        "claude_cmd": "claude",
+        "claude_model": "",
+        "digest_word_target": 500,
+        # no digest_include_urls key
+    }
+    mock_result = MagicMock(returncode=0, stdout="digest output", stderr="")
+
+    with patch("subprocess.run", return_value=mock_result) as mock_run:
+        from src.summarize import call_claude
+        call_claude(str(prompt_file), "newsletter text", config)
+
+    cmd = mock_run.call_args.args[0]
+    prompt_arg = cmd[cmd.index("-p") + 1]
+    assert "source URLs" not in prompt_arg, (
+        f"Expected no 'source URLs' in prompt when key missing, got: {prompt_arg!r}"
+    )
+
+
+def test_prompt_contains_url_instruction_placeholder():
+    """prompts/summarize.txt must contain {url_instruction} placeholder."""
+    content = PROMPT_PATH.read_text(encoding="utf-8")
+    assert "{url_instruction}" in content, (
+        "prompts/summarize.txt must contain {url_instruction} placeholder"
+    )
